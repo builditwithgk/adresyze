@@ -1,0 +1,26 @@
+[project]
+name = "adresyze"
+version = "0.1.0"
+description = "Layout-aware ad creative resizing, powered by a Qwen2.5-VL LoRA"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+authors = [{ name = "builditwithgk" }]
+dependencies = [
+    "pydantic>=2.0",
+    "pillow>=10.0",
+]
+
+[project.optional-dependencies]
+remote = ["modal>=0.63"]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+adresyze = "adresyze.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

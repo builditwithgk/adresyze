@@ -1,0 +1,21 @@
+# Ad creatives are brand-owned -- never commit them.
+samples/images/
+eval/images/
+*.jpg
+*.jpeg
+*.png
+!docs/**/*.png
+
+# Cached model output (regenerate with `modal run`)
+samples/layouts/
+.cache/
+
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.env
