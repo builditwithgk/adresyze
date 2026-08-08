@@ -35,6 +35,38 @@ VERDICTS = ROOT / "eval" / "verdicts.csv"
 
 FIELDS = ["image_file", "index", "type", "priority", "bbox", "verdict", "note"]
 
+#: `background` extent is ignored by the reflow engine (TYPE_WEIGHT 0.0) because the
+#: model returns partial regions rather than the canvas. Labelling it would measure
+#: something no code consumes, so it is left out of the review sheet.
+SKIP_TYPES = {"background"}
+
+#: The atomic roles drive every crop-vs-pad decision, so the sample is chosen to cover
+#: them rather than to be alphabetically first.
+SAMPLE_WEIGHT = {"price": 4.0, "logo": 3.0, "cta": 3.0, "product": 1.5, "headline": 1.0}
+
+
+def select_ads(candidates: list[tuple[Path, list[str]]], count: int) -> list[Path]:
+    """Greedily pick ads that balance coverage of the rarer, more important types.
+
+    Taking the first N files alphabetically produced 25 logos and a single price row --
+    no usable statistics on exactly the elements the engine depends on.
+    """
+    chosen: list[Path] = []
+    covered: Counter[str] = Counter()
+    pool = list(candidates)
+
+    while pool and len(chosen) < count:
+        def gain(item: tuple[Path, list[str]]) -> float:
+            return sum(
+                SAMPLE_WEIGHT.get(t, 0.5) / (1.0 + covered[t]) for t in set(item[1])
+            )
+
+        best = max(pool, key=gain)
+        pool.remove(best)
+        chosen.append(best[0])
+        covered.update(best[1])
+    return chosen
+
 
 def cmd_sheets(args) -> int:
     from PIL import Image
@@ -42,27 +74,38 @@ def cmd_sheets(args) -> int:
     images, layouts = Path(args.images), Path(args.layouts)
     SHEETS.mkdir(parents=True, exist_ok=True)
 
-    pairs = []
+    candidates: list[tuple[Path, list[str]]] = []
     for image_path in sorted(images.iterdir()):
         if image_path.suffix.lower() not in {".jpg", ".jpeg", ".png", ".webp"}:
             continue
         layout_path = layouts / f"{image_path.stem}.json"
-        if layout_path.exists():
-            pairs.append((image_path, layout_path))
-        if len(pairs) >= args.count:
-            break
+        if not layout_path.exists():
+            continue
+        data = json.loads(layout_path.read_text())
+        types = [
+            e.get("type", "")
+            for e in (data.get("elements") or [])
+            if e.get("type") not in SKIP_TYPES
+        ]
+        if types:
+            candidates.append((image_path, types))
 
-    if not pairs:
+    if not candidates:
         raise SystemExit(f"no image/layout pairs in {images} + {layouts}")
 
     if VERDICTS.exists() and not args.overwrite:
         raise SystemExit(f"{VERDICTS} exists -- pass --overwrite to regenerate")
 
+    selected = select_ads(candidates, args.count)
+
     rows = []
-    for image_path, layout_path in pairs:
+    for image_path in selected:
+        layout_path = layouts / f"{image_path.stem}.json"
         layout, _ = normalize(RawLayout.model_validate(json.loads(layout_path.read_text())))
         annotate(Image.open(image_path), layout).save(SHEETS / f"{image_path.stem}.png")
         for i, el in enumerate(layout.elements):
+            if el.type.value in SKIP_TYPES:
+                continue
             rows.append(
                 {
                     "image_file": image_path.name,
@@ -80,9 +123,14 @@ def cmd_sheets(args) -> int:
         writer.writeheader()
         writer.writerows(rows)
 
-    print(f"{len(pairs)} sheets -> {SHEETS}")
+    print(f"{len(selected)} sheets -> {SHEETS}")
     print(f"{len(rows)} rows to review -> {VERDICTS}")
-    print("\nmark each row y (correct) / n (wrong) / m (missed element, add the row yourself)")
+    spread = Counter(r["type"] for r in rows)
+    print("\ncoverage:")
+    for name, n in spread.most_common():
+        print(f"  {name:<12} {n}")
+    print(f"\nskipped types: {', '.join(sorted(SKIP_TYPES))} (extent unused by the engine)")
+    print("mark each row y (correct) / n (wrong) / m (missed element, add the row yourself)")
     return 0
 
 
