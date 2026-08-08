@@ -85,6 +85,15 @@ image = (
     .env({"HF_HUB_ENABLE_HF_TRANSFER": "1", "HF_HOME": "/weights"})
 )
 
+#: The UI runs on CPU and calls the GPU class remotely. Keeping them apart means the
+#: web container is cheap to hold warm while the L4 still scales to zero between
+#: requests -- a single GPU container serving the page would idle-bill the expensive part.
+web_image = (
+    modal.Image.debian_slim(python_version="3.11")
+    .pip_install("gradio~=5.0", "pillow>=10", "pydantic>=2")
+    .add_local_python_source("adresyze")
+)
+
 weights = modal.Volume.from_name("adresyze-weights", create_if_missing=True)
 app = modal.App("adresyze", image=image)
 
@@ -327,6 +336,77 @@ def extract_json(text: str) -> dict | None:
                 return parsed if isinstance(parsed, dict) else None
             return None
     return None
+
+
+@app.function(image=web_image, timeout=600, scaledown_window=300)
+@modal.asgi_app()
+def ui():
+    """Gradio demo. `modal deploy modal_app.py` gives it a stable HTTPS URL."""
+    import io
+
+    import gradio as gr
+    from fastapi import FastAPI
+    from gradio.routes import mount_gradio_app
+    from PIL import Image as PILImage
+
+    from adresyze import RawLayout, normalize
+    from adresyze.preview import annotate
+    from adresyze.resize import plan, render
+
+    TARGETS = ("1:1", "4:5", "1.91:1", "9:16")
+
+    def process(uploaded):
+        if uploaded is None:
+            raise gr.Error("Upload an ad creative first.")
+
+        pil = PILImage.open(uploaded).convert("RGB") if isinstance(uploaded, str) else uploaded.convert("RGB")
+        buffer = io.BytesIO()
+        pil.save(buffer, format="PNG")
+
+        raw = LayoutModel().infer.remote(buffer.getvalue(), "upload.png")
+        if "error" in raw:
+            raise gr.Error(f"The model returned unparseable output: {raw['error']}")
+
+        layout, report = normalize(RawLayout.model_validate(raw))
+
+        gallery, lines = [], []
+        for target in TARGETS:
+            p = plan(layout, target)
+            gallery.append((render(pil, p), f"{target} - {p.mode} - {p.retention:.0%} kept"))
+            note = f"**{target}** - {p.mode}, {p.canvas_size[0]}x{p.canvas_size[1]}, {p.retention:.0%} retained"
+            if p.lost:
+                note += "  (lost: " + ", ".join(sorted({pl.type.value for pl in p.lost})) + ")"
+            lines.append(note)
+
+        found = ", ".join(f"{el.type.value}" for el in layout.foreground) or "nothing"
+        summary = (
+            f"**Detected:** {found}\n\n"
+            + "\n\n".join(lines)
+            + (f"\n\n_repairs: background synthesized_" if report.synthesized_background else "")
+        )
+        return annotate(pil, layout), gallery, summary
+
+    with gr.Blocks(title="AdResyze", theme=gr.themes.Soft()) as blocks:
+        gr.Markdown(
+            "# AdResyze\n"
+            "Upload an ad creative. Qwen2.5-VL reads its anatomy - logo, headline, CTA, "
+            "product, price - and a deterministic reflow engine rebuilds it at every "
+            "platform ratio, cropping only where nothing essential is lost and padding "
+            "otherwise.\n\n"
+            "_First request wakes a GPU and takes ~40s; later ones are quick._"
+        )
+        with gr.Row():
+            with gr.Column(scale=1):
+                upload = gr.Image(type="pil", label="Ad creative", sources=["upload", "clipboard"])
+                go = gr.Button("Resize", variant="primary")
+                detected = gr.Image(label="Detected layout", interactive=False)
+            with gr.Column(scale=2):
+                outputs = gr.Gallery(label="Reflowed", columns=2, height=560, object_fit="contain")
+                summary = gr.Markdown()
+
+        go.click(process, inputs=upload, outputs=[detected, outputs, summary])
+
+    return mount_gradio_app(app=FastAPI(), blocks=blocks, path="/")
 
 
 @app.local_entrypoint()
