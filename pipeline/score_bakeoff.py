@@ -1,6 +1,6 @@
 """Score a LoRA-vs-base bake-off. Local, free.
 
-    python -m pipeline.score_bakeoff samples/bakeoff.json
+    python -m pipeline.score_bakeoff docs/evidence/bakeoff.json
 
 Measures what actually matters downstream -- can the reflow engine consume this?
 There is no hand-labelled ground truth, so this scores *conformance*, not accuracy:
@@ -62,7 +62,7 @@ def score_one(text: str, meta: dict) -> dict:
     return out
 
 
-def main(path: str = "samples/bakeoff.json") -> int:
+def main(path: str = "docs/evidence/bakeoff.json") -> int:
     rows = json.loads(Path(path).read_text())
     totals = {"lora": [], "base": []}
 
@@ -117,3 +117,4 @@ def main(path: str = "samples/bakeoff.json") -> int:
 
 if __name__ == "__main__":
     sys.exit(main(*sys.argv[1:2]))
+

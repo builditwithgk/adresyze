@@ -1,4 +1,4 @@
-﻿"""Qwen2.5-VL + AdResyze LoRA on Modal.
+"""Qwen2.5-VL + AdResyze LoRA on Modal.
 
 One function, three ways to call it:
 
@@ -42,7 +42,7 @@ PROMPT = (
 # The card's prompt never states the vocabulary, so the model answers with whatever it
 # sees ("car", "building") instead of ad anatomy, and with colour *names* instead of hex.
 # v1's clean labels came from post-processing in the annotation script, not from the
-# model. Stating the contract in the prompt is the cheap fix; see docs/adapter-audit.md.
+# model. Stating the contract in the prompt is the cheap fix; see the README bake-off.
 STRICT_PROMPT = (
     "Analyze this advertisement image and return ONLY a JSON object.\n"
     "Describe the ROLE each region plays in the ad, not the objects depicted.\n"
@@ -339,7 +339,10 @@ def extract_json(text: str) -> dict | None:
 
 
 @app.function(image=web_image, timeout=600, scaledown_window=300)
-@modal.asgi_app()
+# `label` pins the second half of the URL so redeploys never move it. The first half is
+# the Modal workspace slug and can only be changed by renaming the workspace itself:
+#   https://<workspace>--adresyze-ui.modal.run
+@modal.asgi_app(label="adresyze-ui")
 def ui():
     """Gradio demo. `modal deploy modal_app.py` gives it a stable HTTPS URL."""
     import io
@@ -430,7 +433,7 @@ def diagnose(image: str = ""):
     print("\n--- WITH adapter ---\n" + result["with_adapter"])
     print("\n--- WITHOUT adapter ---\n" + result["without_adapter"])
 
-    Path("samples/diagnose.json").write_text(json.dumps(result, indent=2))
+    Path("docs/evidence/diagnose.json").write_text(json.dumps(result, indent=2))
 
 
 @app.local_entrypoint()
@@ -460,12 +463,12 @@ def prompt_matrix(count: int = 3):
             )
             print(f"  {cell:<14} {summary}")
 
-    Path("samples/prompt_matrix.json").write_text(json.dumps(results, indent=2))
+    Path("docs/evidence/prompt_matrix.json").write_text(json.dumps(results, indent=2))
     print("\nwrote samples/prompt_matrix.json")
 
 
 @app.local_entrypoint()
-def bakeoff(count: int = 25, out: str = "samples/bakeoff.json"):
+def bakeoff(count: int = 25, out: str = "docs/evidence/bakeoff.json"):
     """LoRA vs base under the strict prompt, over `count` images.
 
         modal run modal_app.py::bakeoff --count 25
@@ -531,4 +534,5 @@ def main(
 
     print(f"\n{len(todo) - failures}/{len(todo)} succeeded -> {dst}/")
     print("validate with: python -m pipeline.validate_layouts")
+
 
