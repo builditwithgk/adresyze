@@ -1,0 +1,54 @@
+# LLaMA-Factory config reconstructed from the published adapter.
+#
+# PROVENANCE ONLY. This reproduces the training run behind
+# huggingface.co/builditwithgk/adresyze-lora, which AdResyze does NOT use --
+# it lost a measured bake-off against the stock base model (see ../README.md).
+# Kept so the result is reproducible and the negative finding is checkable.
+#
+# Values below are taken from the published adapter_config.json (r, alpha,
+# target modules) and the model card (samples, epochs, learning rate, loss).
+#
+#   loss 0.2359 -> 0.1375 over 3 epochs, ~21 minutes on an A100 SXM 80GB
+#
+# If you retrain, the bake-off suggests where the original run was too timid:
+# target_modules is only q_proj/v_proj, rank is 16, and 260 samples over 3
+# epochs moved formatting but not vocabulary. Adding k_proj/o_proj and the MLP
+# projections, raising rank, and training on the strict-prompt format would be
+# the experiment worth running.
+
+model_name_or_path: Qwen/Qwen2.5-VL-7B-Instruct
+trust_remote_code: true
+
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_rank: 16
+lora_alpha: 32
+lora_dropout: 0.0
+lora_target: q_proj,v_proj
+
+dataset: adresyze_ad_layouts
+template: qwen2_vl
+cutoff_len: 2048
+overwrite_cache: true
+preprocessing_num_workers: 8
+
+output_dir: saves/qwen2_5vl-7b/lora/adresyze
+logging_steps: 10
+save_steps: 500
+plot_loss: true
+overwrite_output_dir: true
+
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 8
+learning_rate: 2.0e-4
+num_train_epochs: 3.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+bf16: true
+ddp_timeout: 180000000
+
+val_size: 0.1
+per_device_eval_batch_size: 1
+eval_strategy: steps
+eval_steps: 500

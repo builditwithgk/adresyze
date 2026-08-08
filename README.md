@@ -18,8 +18,36 @@ without squashing the logo or cropping the call to action.
 
 - [x] Layout schema + normalizer (`adresyze/schema.py`, `adresyze/normalize.py`)
 - [x] Modal inference (`modal_app.py`)
-- [ ] Reflow engine (`adresyze/resize.py`)
-- [ ] CLI, eval, demo
+- [x] Reflow engine + CLI (`adresyze/resize.py`, `adresyze/cli.py`)
+- [x] v2 annotation set (`pipeline/build_v2_dataset.py`)
+- [ ] Hand-labelled eval
+- [ ] Live demo
+
+## Results
+
+Across the full corpus — 302 ads x 4 target ratios = 1208 reflows:
+
+| | |
+|---|---|
+| reflows losing nothing | **94.1%** |
+| mean retention | **99.0%** |
+| logos, CTAs or prices lost | **0** |
+
+```bash
+adresyze report                              # the table above
+adresyze preview --count 6                   # before/after contact sheet
+adresyze resize ad.jpg --to 1:1,4:5,9:16     # one ad
+```
+
+The engine crops when a crop window can keep everything structurally essential, and
+pads otherwise. Atomic roles — logo, CTA, price — score all-or-nothing, because a
+clipped call to action is worse than none, and they override the model's
+`must_preserve` guess, which marked 21 of 201 CTAs disposable.
+
+Padding dominates the extreme ratios: 212 of 302 ads pad for 9:16. That is correct —
+a square ad cannot become 9:16 without either losing content or adding space — but it
+is the honest ceiling of a CV-only resizer, and the point where generative outpainting
+would start to earn its cost.
 
 ## The LoRA lost to its own prompt
 
