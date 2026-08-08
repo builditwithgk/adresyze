@@ -234,6 +234,10 @@ class Element(BaseModel):
 
     type: ElementType
     bbox: BBox
+    #: 1 = critical, 3 = optional. Constant in the v1 dataset, meaningful once the
+    #: prompt defines it, so the reflow engine is allowed to rely on it.
+    priority: int = Field(default=1, ge=1, le=3)
+    must_preserve: bool = True
 
 
 class Layout(BaseModel):

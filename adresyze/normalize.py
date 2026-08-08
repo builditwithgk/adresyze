@@ -79,8 +79,16 @@ def normalize(
             report.dropped_empty += 1
             continue
 
+        priority = min(max(int(raw_el.priority or 1), 1), 3)
         for t in types:
-            elements.append(Element(type=t, bbox=box))
+            elements.append(
+                Element(
+                    type=t,
+                    bbox=box,
+                    priority=priority,
+                    must_preserve=bool(raw_el.must_preserve),
+                )
+            )
 
     if merge_duplicates:
         elements, merged = _merge_overlapping(elements)
@@ -90,7 +98,13 @@ def normalize(
         e.type is ElementType.BACKGROUND for e in elements
     ):
         elements.insert(
-            0, Element(type=ElementType.BACKGROUND, bbox=BBox(x1=0, y1=0, x2=1, y2=1))
+            0,
+            Element(
+                type=ElementType.BACKGROUND,
+                bbox=BBox(x1=0, y1=0, x2=1, y2=1),
+                priority=3,
+                must_preserve=False,
+            ),
         )
         report.synthesized_background = True
 
