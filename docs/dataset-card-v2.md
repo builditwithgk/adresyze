@@ -24,6 +24,9 @@ Built for [AdResyze](https://github.com/builditwithgk/adresyze), which uses thes
 layouts to reflow a single creative into every platform aspect ratio without squashing
 the logo or cropping the call to action.
 
+**Try it:** [builditwithgk--adresyze-ui.modal.run](https://builditwithgk--adresyze-ui.modal.run)
+&nbsp;·&nbsp; **Code:** [github.com/builditwithgk/adresyze](https://github.com/builditwithgk/adresyze)
+
 **Annotations only.** The advertisements themselves are brand-owned and are not
 redistributed.
 
