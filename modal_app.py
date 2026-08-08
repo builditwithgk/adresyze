@@ -55,6 +55,10 @@ STRICT_PROMPT = (
     "bbox is [left, top, right, bottom] in pixels of the image as shown. "
     "A photo of a car being advertised is type 'product', not 'car'."
 )
+# NOTE: the model's `aspect_ratio` is discarded, not trusted. Measured over 302 ads it
+# answered "1.91:1" 301 times, anchoring on the example above, when 219 were actually
+# 1:1. Layout.aspect_ratio computes it from source_width/source_height instead.
+# `platform_guess` is a soft hint and is carried through unvalidated.
 
 # Caps the visual token count. Qwen2.5-VL resizes to multiples of 28; ~1 MP keeps the
 # sequence short enough to fit a 24 GB card alongside fp16 weights.
