@@ -8,7 +8,7 @@ without squashing the logo or cropping the call to action.
 
 | | |
 |---|---|
-| **Live demo** | **https://scaleupsolutions-in--adresyze-ui.modal.run** |
+| **Live demo** | **https://builditwithgk--adresyze-ui.modal.run** |
 | Base model | `Qwen/Qwen2.5-VL-7B-Instruct` |
 | Adapter | [`builditwithgk/adresyze-lora`](https://huggingface.co/builditwithgk/adresyze-lora) (published, not used - see below) |
 | Dataset | [`builditwithgk/adresyze-ad-layouts`](https://huggingface.co/datasets/builditwithgk/adresyze-ad-layouts) |
@@ -21,12 +21,12 @@ without squashing the logo or cropping the call to action.
 - [x] Modal inference (`modal_app.py`)
 - [x] Reflow engine + CLI (`adresyze/resize.py`, `adresyze/cli.py`)
 - [x] v2 annotation set (`pipeline/build_v2_dataset.py`)
+- [x] Live demo (gradio on Modal)
 - [ ] Hand-labelled eval
-- [ ] Live demo
 
 ## Results
 
-Across the full corpus — 302 ads x 4 target ratios = 1208 reflows:
+Across the full corpus - 302 ads x 4 target ratios = 1208 reflows:
 
 | | |
 |---|---|
@@ -41,12 +41,12 @@ adresyze resize ad.jpg --to 1:1,4:5,9:16     # one ad
 ```
 
 The engine crops when a crop window can keep everything structurally essential, and
-pads otherwise. Atomic roles — logo, CTA, price — score all-or-nothing, because a
+pads otherwise. Atomic roles - logo, CTA, price - score all-or-nothing, because a
 clipped call to action is worse than none, and they override the model's
 `must_preserve` guess, which marked 21 of 201 CTAs disposable.
 
-Padding dominates the extreme ratios: 212 of 302 ads pad for 9:16. That is correct —
-a square ad cannot become 9:16 without either losing content or adding space — but it
+Padding dominates the extreme ratios: 212 of 302 ads pad for 9:16. That is correct -
+a square ad cannot become 9:16 without either losing content or adding space - but it
 is the honest ceiling of a CV-only resizer, and the point where generative outpainting
 would start to earn its cost.
 
@@ -141,3 +141,4 @@ Two properties of v1 shape the design here:
 - **`priority` and `must_preserve` carry no signal.** 1121 of 1126 elements have
   `priority: 1`, and 1064 of 1126 are `must_preserve: true`. Reflow rules key off
   element `type` instead.
+
