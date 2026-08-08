@@ -46,6 +46,9 @@ image = (
         "qwen-vl-utils",
         "pillow",
         "huggingface_hub[hf_transfer]",
+        # Required explicitly since Modal 1.x -- @modal.fastapi_endpoint no longer
+        # injects it automatically.
+        "fastapi[standard]",
     )
     .env({"HF_HUB_ENABLE_HF_TRANSFER": "1", "HF_HOME": "/weights"})
 )
