@@ -1,0 +1,227 @@
+[
+  {
+    "image_file": "121101721_337678557303047_605074869721584267_n.jpg",
+    "source_width": 600,
+    "source_height": 400,
+    "grid_width": 588,
+    "grid_height": 392,
+    "lora": "{\"elements\": [{\"type\": \"product\", \"bbox\": [148, 150, 390, 290], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"background\", \"bbox\": [0, 0, 588, 392], \"priority\": 2, \"must_preserve\": false}], \"dominant_colors\": [\"#ffffff\", \"#000000\"], \"aspect_ratio\": \"1.91:1\", \"platform_guess\": \"other\"}",
+    "base": "```json\n{\n  \"elements\": [\n    {\n      \"type\": \"background\",\n      \"bbox\": [0, 0, 587, 208],\n      \"priority\": 2,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"product\",\n      \"bbox\": [147, 152, 388, 290],\n      \"priority\": 1,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"headline\",\n      \"bbox\": [125, 156, 165, 200],\n      \"priority\": 3,\n      \"must_preserve\": false\n    },\n    {\n      \"type\": \"cta\",\n      \"bbox\": [388, 136, 418, 199],\n      \"priority\": 3,\n      \"must_preserve\": false\n    }\n  ],\n  \"dominant_colors\": [\"#ffffff\", \"#000000\"],\n  \"aspect_ratio\": \"1.91:1\",\n  \"platform_guess\": \"other\"\n}\n```"
+  },
+  {
+    "image_file": "122040539_786429012177322_1924572256050736421_n.jpg",
+    "source_width": 600,
+    "source_height": 303,
+    "grid_width": 644,
+    "grid_height": 336,
+    "lora": "{\"elements\": [{\"type\": \"headline\", \"bbox\": [128, 70, 505, 185], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"background\", \"bbox\": [0, 0, 644, 336], \"priority\": 2, \"must_preserve\": false}], \"dominant_colors\": [\"#ffffff\", \"#808080\"], \"aspect_ratio\": \"1.91:1\", \"platform_guess\": \"other\"}",
+    "base": "```json\n{\n  \"elements\": [\n    {\n      \"type\": \"headline\",\n      \"bbox\": [128, 70, 505, 185],\n      \"priority\": 1,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"background\",\n      \"bbox\": [0, 0, 644, 336],\n      \"priority\": 2,\n      \"must_preserve\": false\n    }\n  ],\n  \"dominant_colors\": [\"#8b4513\", \"#ffffff\"],\n  \"aspect_ratio\": \"1.91:1\",\n  \"platform_guess\": \"other\"\n}\n```"
+  },
+  {
+    "image_file": "127672688_132472308451922_1865017234507236751_n.jpg",
+    "source_width": 600,
+    "source_height": 218,
+    "grid_width": 756,
+    "grid_height": 280,
+    "lora": "{\"elements\": [{\"type\": \"headline\", \"bbox\": [218, 165, 530, 179\", \"priority\": 1, \"must_preserve\": true}, {\"type\": \"cta\", \"bbox\": [218, 187, 530, 207\", \"priority\": 2, \"must_preserve\": true}, {\"type\": \"background\", \"bbox\": [0, 0, 728, 278\", \"priority\": 3, \"must_preserve\": false}], {\"type\": \"other\", \"bbox\": [195, 247, 218, 278\", \"priority\": 3, \"must_preserve\": false}], {\"type\": \"other\", \"bbox\": [460, 247, 483, 278\", \"priority\": 3, \"must_preserve\": false}], {\"type\": \"other\", \"bbox\": [390, 247, 413, 278\", \"priority\": 3, \"must_preserve\": false}], {\"type\": \"other\", \"bbox\": [218, 247, 239, 278\", \"priority\": 3, \"must_preserve\": false}], {\"type\": \"other\", \"bbox\": [390, 247, 413, 278\", \"priority\": 3, \"must_preserve\": false}], {\"type\": \"other\", \"bbox\": [460, 247, 483, 278\", \"priority\": 3, \"must_preserve\": false}], {\"type\": \"other\", \"bbox\": [195, 247, 218, 278\", \"priority\": 3, \"must_preserve\": false}], {\"type\": \"other\", \"bbox\": [218, 247, 239, 278\", \"priority\": 3, \"must_preserve\": false}], {\"type\": \"other\", \"bbox\": [390, 247, 413, 278\", \"priority\": 3, \"must_preserve\": false}], {\"type\": \"other\", \"bbox\": [460, 247, 483, 278\", \"priority\": 3, \"must_preserve\": false}], {\"type\": \"other\", \"bbox\": [195, 247, 218, 278\", \"priority\": 3, \"must_preserve\": false}], {\"type\": \"other\", \"bbox\": [218, 247, 239, 278\", \"priority\": 3, \"must_preserve\": false}], {\"type\": \"other\", \"bbox\": [390, 247, 413, 278\", \"priority\": 3, \"must_preserve\": false}], {\"type\": \"other\", \"bbox\": [460, 247, 483, 278\", \"priority\": 3, \"must_preserve\": false}], {\"type\": \"other\", \"bbox\": [195, 247, 218, 278\", \"priority\": 3, \"must_preserve\": false}], {\"type\": \"other\", \"bbox\": [218, 247, 239, 278\", \"priority\": 3, \"must_preserve\": false}], {\"type\": \"other\", \"bbox\": [390, 247, 413, 278\", \"priority\": 3, \"must_preserve\": false}], {\"type\": \"other\", \"bbox\": [460, 247, 483, 278\", \"priority\": 3, \"must_preserve\": false}], {\"type\": \"other\", \"bbox\": [195, 247, 218, 278\", \"priority\": 3, \"must_preserve\": false}], {\"type\": \"other\", \"bbox\": [218, 247, 239, 278\", \"priority\": 3, \"must_preserve\": false}], {\"type\": \"other\", \"bbox\": [390, 247, 413, 278\", \"priority\": 3, \"must_preserve\": false}], {\"type\": \"other\", \"bbox\": [460, 24",
+    "base": "```json\n{\n  \"elements\": [\n    {\n      \"type\": \"headline\",\n      \"bbox\": [217, 160, 538, 210],\n      \"priority\": 1,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"cta\",\n      \"bbox\": [217, 248, 300, 279],\n      \"priority\": 2,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"cta\",\n      \"bbox\": [300, 248, 392, 279],\n      \"priority\": 2,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"cta\",\n      \"bbox\": [392, 248, 474, 279],\n      \"priority\": 2,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"background\",\n      \"bbox\": [0, 0, 728, 279],\n      \"priority\": 3,\n      \"must_preserve\": false\n    }\n  ],\n  \"dominant_colors\": [\"#000000\", \"#ffffff\"],\n  \"aspect_ratio\": \"1.91:1\",\n  \"platform_guess\": \"other\"\n}\n```"
+  },
+  {
+    "image_file": "146407607_139987541288694_8198486149148538790_n.jpg",
+    "source_width": 600,
+    "source_height": 600,
+    "grid_width": 588,
+    "grid_height": 588,
+    "lora": "{\"elements\": [{\"type\": \"logo\", \"bbox\": [0, 0, 298, 245], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"headline\", \"bbox\": [17, 40, 199, 65], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"cta\", \"bbox\": [17, 65, 199, 87], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"cta\", \"bbox\": [17, 87, 199, 109], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"cta\", \"bbox\": [17, 113, 109, 135], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"product\", \"bbox\": [17, 195, 575, 467], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"background\", \"bbox\": [0, 0, 588, 588], \"priority\": 3, \"must_preserve\": false}], \"dominant_colors\": [\"#000000\", \"#ffffff\"], \"aspect_ratio\": \"1.91:1\", \"platform_guess\": \"other\"}",
+    "base": "```json\n{\n  \"elements\": [\n    {\n      \"type\": \"headline\",\n      \"bbox\": [17, 40, 200, 68],\n      \"priority\": 1,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"cta\",\n      \"bbox\": [17, 65, 143, 88],\n      \"priority\": 2,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"product\",\n      \"bbox\": [17, 195, 575, 467],\n      \"priority\": 2,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"background\",\n      \"bbox\": [0, 0, 588, 588],\n      \"priority\": 3,\n      \"must_preserve\": false\n    },\n    {\n      \"type\": \"logo\",\n      \"bbox\": [0, 0, 297, 245],\n      \"priority\": 1,\n      \"must_preserve\": true\n    }\n  ],\n  \"dominant_colors\": [\"#000000\", \"#ffffff\"],\n  \"aspect_ratio\": \"1.91:1\",\n  \"platform_guess\": \"other\"\n}\n```"
+  },
+  {
+    "image_file": "146543778_255017742666675_5452664911949930830_n.jpg",
+    "source_width": 600,
+    "source_height": 561,
+    "grid_width": 588,
+    "grid_height": 560,
+    "lora": "{\"elements\": [{\"type\": \"logo\", \"bbox\": [37, 289, 70, 313], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"headline\", \"bbox\": [0, 38, 50, 55], \"priority\": 2, \"must_preserve\": true}, {\"type\": \"cta\", \"bbox\": [0, 55, 50, 73], \"priority\": 2, \"must_preserve\": true}, {\"type\": \"product\", \"bbox\": [16, 157, 575, 443], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"background\", \"bbox\": [0, 0, 588, 560], \"priority\": 3, \"must_preserve\": false}], \"dominant_colors\": [\"#ffffff\", \"#000000\"], \"aspect_ratio\": \"1.91:1\", \"platform_guess\": \"google_display\"}",
+    "base": "```json\n{\n  \"elements\": [\n    {\n      \"type\": \"headline\",\n      \"bbox\": [0, 37, 48, 53],\n      \"priority\": 2,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"logo\",\n      \"bbox\": [0, 58, 48, 82],\n      \"priority\": 2,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"product\",\n      \"bbox\": [16, 157, 574, 443],\n      \"priority\": 1,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"background\",\n      \"bbox\": [0, 38, 587, 230],\n      \"priority\": 3,\n      \"must_preserve\": false\n    }\n  ],\n  \"dominant_colors\": [\"#ffffff\", \"#000000\"],\n  \"aspect_ratio\": \"1.91:1\",\n  \"platform_guess\": \"google_display\"\n}\n```"
+  },
+  {
+    "image_file": "146652936_891144114995321_7167073234238423237_n.jpg",
+    "source_width": 600,
+    "source_height": 600,
+    "grid_width": 588,
+    "grid_height": 588,
+    "lora": "{\"elements\": [{\"type\": \"product\", \"bbox\": [0, 72, 575, 412], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"background\", \"bbox\": [0, 0, 588, 588], \"priority\": 2, \"must_preserve\": false}], \"dominant_colors\": [\"#ffffff\", \"#000000\"], \"aspect_ratio\": \"1.91:1\", \"platform_guess\": \"other\"}",
+    "base": "```json\n{\n  \"elements\": [\n    {\n      \"type\": \"headline\",\n      \"bbox\": [0, 0, 587, 222],\n      \"priority\": 2,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"cta\",\n      \"bbox\": [0, 222, 587, 587],\n      \"priority\": 2,\n      \"must_preserve\": false\n    },\n    {\n      \"type\": \"product\",\n      \"bbox\": [0, 73, 575, 412],\n      \"priority\": 1,\n      \"must_preserve\": true\n    }\n  ],\n  \"dominant_colors\": [\"#333333\", \"#ffffff\"],\n  \"aspect_ratio\": \"1.91:1\",\n  \"platform_guess\": \"other\"\n}\n```"
+  },
+  {
+    "image_file": "146709439_161260305605631_157436130821510617_n.jpg",
+    "source_width": 600,
+    "source_height": 450,
+    "grid_width": 588,
+    "grid_height": 448,
+    "lora": "{\"elements\": [{\"type\": \"logo\", \"bbox\": [164, 38, 207, 75], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"headline\", \"bbox\": [165, 40, 207, 55], \"priority\": 2, \"must_preserve\": true}, {\"type\": \"cta\", \"bbox\": [165, 55, 207, 69], \"priority\": 2, \"must_preserve\": true}, {\"type\": \"product\", \"bbox\": [89, 119, 500, 353], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"background\", \"bbox\": [0, 0, 588, 448], \"priority\": 3, \"must_preserve\": false}], \"dominant_colors\": [\"#0000ff\", \"#ffffff\"], \"aspect_ratio\": \"1.91:1\", \"platform_guess\": \"google_display\"}",
+    "base": "```json\n{\n  \"elements\": [\n    {\n      \"type\": \"headline\",\n      \"bbox\": [162, 37, 208, 70],\n      \"priority\": 2,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"cta\",\n      \"bbox\": [162, 70, 208, 80],\n      \"priority\": 2,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"product\",\n      \"bbox\": [88, 119, 500, 354],\n      \"priority\": 1,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"background\",\n      \"bbox\": [0, 0, 588, 448],\n      \"priority\": 3,\n      \"must_preserve\": false\n    }\n  ],\n  \"dominant_colors\": [\"#0000ff\", \"#ffffff\"],\n  \"aspect_ratio\": \"1.91:1\",\n  \"platform_guess\": \"other\"\n}\n```"
+  },
+  {
+    "image_file": "146917466_123249919680731_5307378864546244177_n.jpg",
+    "source_width": 600,
+    "source_height": 489,
+    "grid_width": 588,
+    "grid_height": 476,
+    "lora": "{\"elements\": [{\"type\": \"logo\", \"bbox\": [70, 258, 125, 275], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"headline\", \"bbox\": [58, 250, 125, 275], \"priority\": 2, \"must_preserve\": false}, {\"type\": \"cta\", \"bbox\": [125, 250, 179, 275], \"priority\": 2, \"must_preserve\": false}, {\"type\": \"product\", \"bbox\": [63, 60, 567, 376], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"background\", \"bbox\": [0, 0, 588, 476], \"priority\": 3, \"must_preserve\": false}], \"dominant_colors\": [\"#0000ff\", \"#ffffff\"], \"aspect_ratio\": \"1.91:1\", \"platform_guess\": \"other\"}",
+    "base": "```json\n{\n  \"elements\": [\n    {\n      \"type\": \"headline\",\n      \"bbox\": [78, 260, 149, 274],\n      \"priority\": 2,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"cta\",\n      \"bbox\": [149, 260, 199, 274],\n      \"priority\": 2,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"product\",\n      \"bbox\": [62, 60, 566, 376],\n      \"priority\": 1,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"background\",\n      \"bbox\": [0, 0, 588, 476],\n      \"priority\": 3,\n      \"must_preserve\": false\n    }\n  ],\n  \"dominant_colors\": [\"#ffffff\", \"#000000\"],\n  \"aspect_ratio\": \"1.91:1\",\n  \"platform_guess\": \"other\"\n}\n```"
+  },
+  {
+    "image_file": "147167119_423449028771910_4224703762022114766_n.jpg",
+    "source_width": 600,
+    "source_height": 600,
+    "grid_width": 588,
+    "grid_height": 588,
+    "lora": "{\"elements\": [{\"type\": \"product\", \"bbox\": [38, 89, 575, 505], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"background\", \"bbox\": [0, 0, 616, 588], \"priority\": 2, \"must_preserve\": false}], \"dominant_colors\": [\"#000000\", \"#ffffff\"], \"aspect_ratio\": \"1.91:1\", \"platform_guess\": \"other\"}",
+    "base": "```json\n{\n  \"elements\": [\n    {\n      \"type\": \"headline\",\n      \"bbox\": [548, 97, 588, 109],\n      \"priority\": 2,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"cta\",\n      \"bbox\": [406, 107, 432, 121],\n      \"priority\": 2,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"product\",\n      \"bbox\": [39, 91, 548, 505],\n      \"priority\": 1,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"background\",\n      \"bbox\": [0, 0, 588, 588],\n      \"priority\": 3,\n      \"must_preserve\": false\n    }\n  ],\n  \"dominant_colors\": [\"#000000\", \"#ffffff\"],\n  \"aspect_ratio\": \"1.91:1\",\n  \"platform_guess\": \"other\"\n}\n```"
+  },
+  {
+    "image_file": "147801128_1372126953119857_5450895416598124192_n.jpg",
+    "source_width": 600,
+    "source_height": 600,
+    "grid_width": 588,
+    "grid_height": 588,
+    "lora": "{\"elements\": [{\"type\": \"product\", \"bbox\": [17, 148, 575, 507], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"background\", \"bbox\": [0, 0, 588, 588], \"priority\": 2, \"must_preserve\": false}], \"dominant_colors\": [\"#0000ff\", \"#ffffff\"], \"aspect_ratio\": \"1.91:1\", \"platform_guess\": \"other\"}",
+    "base": "```json\n{\n  \"elements\": [\n    {\n      \"type\": \"headline\",\n      \"bbox\": [0, 0, 587, 156],\n      \"priority\": 2,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"cta\",\n      \"bbox\": [0, 148, 587, 587],\n      \"priority\": 2,\n      \"must_preserve\": false\n    },\n    {\n      \"type\": \"product\",\n      \"bbox\": [18, 148, 575, 506],\n      \"priority\": 1,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"background\",\n      \"bbox\": [0, 0, 587, 587],\n      \"priority\": 3,\n      \"must_preserve\": false\n    }\n  ],\n  \"dominant_colors\": [\"#0000ff\", \"#ffffff\"],\n  \"aspect_ratio\": \"1.91:1\",\n  \"platform_guess\": \"other\"\n}\n```"
+  },
+  {
+    "image_file": "147804220_172934204623270_5075128727289399701_n.jpg",
+    "source_width": 600,
+    "source_height": 450,
+    "grid_width": 588,
+    "grid_height": 448,
+    "lora": "{\"elements\": [{\"type\": \"logo\", \"bbox\": [38, 237, 70, 260], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"product\", \"bbox\": [28, 69, 525, 381], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"background\", \"bbox\": [0, 0, 588, 448], \"priority\": 3, \"must_preserve\": false}], \"dominant_colors\": [\"#000000\", \"#ffffff\"], \"aspect_ratio\": \"1.91:1\", \"platform_guess\": \"other\"}",
+    "base": "```json\n{\n  \"elements\": [\n    {\n      \"type\": \"headline\",\n      \"bbox\": [0, 0, 587, 142],\n      \"priority\": 2,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"cta\",\n      \"bbox\": [0, 280, 100, 310],\n      \"priority\": 2,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"product\",\n      \"bbox\": [28, 68, 525, 381],\n      \"priority\": 1,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"background\",\n      \"bbox\": [0, 0, 587, 448],\n      \"priority\": 3,\n      \"must_preserve\": false\n    }\n  ],\n  \"dominant_colors\": [\"#000000\", \"#ffffff\"],\n  \"aspect_ratio\": \"1.91:1\",\n  \"platform_guess\": \"other\"\n}\n```"
+  },
+  {
+    "image_file": "20902176_750261961820324_9109745855245582336_a.jpg",
+    "source_width": 206,
+    "source_height": 206,
+    "grid_width": 448,
+    "grid_height": 448,
+    "lora": "{\"elements\": [{\"type\": \"background\", \"bbox\": [0, 0, 387, 448], \"priority\": 3, \"must_preserve\": false}, {\"type\": \"other\", \"bbox\": [165, 384, 225, 448], \"priority\": 3, \"must_preserve\": false}], \"dominant_colors\": [\"#ffffff\", \"#000000\"], \"aspect_ratio\": \"1.91:1\", \"platform_guess\": \"instagram\"}",
+    "base": "```json\n{\n  \"elements\": [\n    {\n      \"type\": \"headline\",\n      \"bbox\": [100, 10, 387, 180],\n      \"priority\": 1,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"cta\",\n      \"bbox\": [100, 180, 387, 250],\n      \"priority\": 2,\n      \"must_preserve\": false\n    },\n    {\n      \"type\": \"background\",\n      \"bbox\": [0, 0, 392, 392],\n      \"priority\": 3,\n      \"must_preserve\": false\n    }\n  ],\n  \"dominant_colors\": [\"#ffffff\", \"#000000\"],\n  \"aspect_ratio\": \"1.91:1\",\n  \"platform_guess\": \"instagram\"\n}\n```"
+  },
+  {
+    "image_file": "274374635_687350118937188_2282847184721610997_n.jpg",
+    "source_width": 274,
+    "source_height": 249,
+    "grid_width": 476,
+    "grid_height": 448,
+    "lora": "{\"elements\": [{\"type\": \"product\", \"bbox\": [10, 85, 357, 385], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"background\", \"bbox\": [0, 0, 392, 420], \"priority\": 2, \"must_preserve\": false}], \"dominant_colors\": [\"#d24a1e\", \"#ffffff\"], \"aspect_ratio\": \"1.91:1\", \"platform_guess\": \"other\"}",
+    "base": "```json\n{\n  \"elements\": [\n    {\n      \"type\": \"headline\",\n      \"bbox\": [180, 170, 220, 180],\n      \"priority\": 1,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"product\",\n      \"bbox\": [100, 94, 336, 387],\n      \"priority\": 1,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"background\",\n      \"bbox\": [0, 0, 336, 387],\n      \"priority\": 3,\n      \"must_preserve\": false\n    }\n  ],\n  \"dominant_colors\": [\"#d32f2f\", \"#ffffff\"],\n  \"aspect_ratio\": \"1.91:1\",\n  \"platform_guess\": \"other\"\n}\n```"
+  },
+  {
+    "image_file": "274396606_368616074792986_9069271463798923222_n.jpg",
+    "source_width": 286,
+    "source_height": 215,
+    "grid_width": 532,
+    "grid_height": 392,
+    "lora": "{\"elements\": [{\"type\": \"logo\", \"bbox\": [170, 158, 205, 173], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"headline\", \"bbox\": [170, 158, 205, 173], \"priority\": 2, \"must_preserve\": true}, {\"type\": \"product\", \"bbox\": [50, 69, 333, 359], \"priority\": 3, \"must_preserve\": true}], \"dominant_colors\": [\"#0000ff\", \"#ffffff\"], \"aspect_ratio\": \"1.91:1\", \"platform_guess\": \"other\"}",
+    "base": "```json\n{\n  \"elements\": [\n    {\n      \"type\": \"headline\",\n      \"bbox\": [170, 158, 206, 170],\n      \"priority\": 1,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"product\",\n      \"bbox\": [48, 68, 252, 363],\n      \"priority\": 1,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"background\",\n      \"bbox\": [0, 0, 252, 363],\n      \"priority\": 3,\n      \"must_preserve\": false\n    }\n  ],\n  \"dominant_colors\": [\"#0000ff\", \"#ffffff\"],\n  \"aspect_ratio\": \"1.91:1\",\n  \"platform_guess\": \"other\"\n}\n```"
+  },
+  {
+    "image_file": "274441078_1262298110959715_6820596436192388381_n.jpg",
+    "source_width": 600,
+    "source_height": 450,
+    "grid_width": 588,
+    "grid_height": 448,
+    "lora": "{\"elements\": [{\"type\": \"product\", \"bbox\": [78, 23, 525, 425], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"background\", \"bbox\": [0, 0, 616, 448], \"priority\": 2, \"must_preserve\": false}], \"dominant_colors\": [\"#ff0000\", \"#000000\"], \"aspect_ratio\": \"1.91:1\", \"platform_guess\": \"other\"}",
+    "base": "```json\n{\n  \"elements\": [\n    {\n      \"type\": \"headline\",\n      \"bbox\": [270, 168, 316, 186],\n      \"priority\": 1,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"product\",\n      \"bbox\": [77, 2, 525, 424],\n      \"priority\": 1,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"background\",\n      \"bbox\": [0, 0, 588, 448],\n      \"priority\": 3,\n      \"must_preserve\": false\n    }\n  ],\n  \"dominant_colors\": [\"#e60000\", \"#000000\"],\n  \"aspect_ratio\": \"1.91:1\",\n  \"platform_guess\": \"other\"\n}\n```"
+  },
+  {
+    "image_file": "274441096_3093460707579338_4881727333890357906_n.jpg",
+    "source_width": 291,
+    "source_height": 218,
+    "grid_width": 532,
+    "grid_height": 392,
+    "lora": "{\"elements\": [{\"type\": \"product\", \"bbox\": [0, 0, 336, 336], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"background\", \"bbox\": [0, 0, 336, 336], \"priority\": 2, \"must_preserve\": false}], \"dominant_colors\": [\"#ffffff\", \"#000000\"], \"aspect_ratio\": \"1.91:1\", \"platform_guess\": \"other\"}",
+    "base": "```json\n{\n  \"elements\": [\n    {\n      \"type\": \"headline\",\n      \"bbox\": [108, 17, 160, 40],\n      \"priority\": 2,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"product\",\n      \"bbox\": [10, 10, 210, 210],\n      \"priority\": 1,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"background\",\n      \"bbox\": [0, 0, 224, 224],\n      \"priority\": 3,\n      \"must_preserve\": false\n    }\n  ],\n  \"dominant_colors\": [\"#ffffff\", \"#000000\"],\n  \"aspect_ratio\": \"1.91:1\",\n  \"platform_guess\": \"other\"\n}\n```"
+  },
+  {
+    "image_file": "274452731_704836420507059_1385247561406984398_n.jpg",
+    "source_width": 297,
+    "source_height": 223,
+    "grid_width": 532,
+    "grid_height": 392,
+    "lora": "{\"elements\": [{\"type\": \"product\", \"bbox\": [20, 38, 375, 385], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"background\", \"bbox\": [0, 0, 476, 392], \"priority\": 2, \"must_preserve\": false}], \"dominant_colors\": [\"#00a000\", \"#ffffff\"], \"aspect_ratio\": \"1.91:1\", \"platform_guess\": \"other\"}",
+    "base": "```json\n{\n  \"elements\": [\n    {\n      \"type\": \"headline\",\n      \"bbox\": [10, 10, 178, 100],\n      \"priority\": 2,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"product\",\n      \"bbox\": [18, 42, 399, 415],\n      \"priority\": 1,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"background\",\n      \"bbox\": [0, 0, 420, 420],\n      \"priority\": 3,\n      \"must_preserve\": false\n    }\n  ],\n  \"dominant_colors\": [\"#00ff00\", \"#000000\"],\n  \"aspect_ratio\": \"1.91:1\",\n  \"platform_guess\": \"other\"\n}\n```"
+  },
+  {
+    "image_file": "278711138_687047312504696_787438168382889494_n.jpg",
+    "source_width": 600,
+    "source_height": 225,
+    "grid_width": 756,
+    "grid_height": 280,
+    "lora": "{\"elements\": [{\"type\": \"logo\", \"bbox\": [0, 0, 178, 63], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"headline\", \"bbox\": [0, 0, 178, 63], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"cta\", \"bbox\": [0, 215, 150, 235], \"priority\": 2, \"must_preserve\": true}, {\"type\": \"product\", \"bbox\": [170, 105, 265, 205], \"priority\": 3, \"must_preserve\": false}, {\"type\": \"product\", \"bbox\": [283, 105, 378, 205], \"priority\": 3, \"must_preserve\": false}, {\"type\": \"product\", \"bbox\": [395, 105, 490, 205], \"priority\": 3, \"must_preserve\": false}, {\"type\": \"product\", \"bbox\": [508, 105, 603, 205], \"priority\": 3, \"must_preserve\": false}, {\"type\": \"product\", \"bbox\": [621, 105, 716, 205], \"priority\": 3, \"must_preserve\": false}, {\"type\": \"background\", \"bbox\": [0, 0, 728, 252], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"other\", \"bbox\": [673, 0, 728, 63], \"priority\": 2, \"must_preserve\": true}], \"dominant_colors\": [\"#000000\", \"#ffffff\"], \"aspect_ratio\": \"1.91:1\", \"platform_guess\": \"google_display\"}",
+    "base": "```json\n{\n  \"elements\": [\n    {\n      \"type\": \"logo\",\n      \"bbox\": [0, 0, 178, 55],\n      \"priority\": 1,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"headline\",\n      \"bbox\": [0, 32, 178, 45],\n      \"priority\": 2,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"product\",\n      \"bbox\": [178, 104, 270, 200],\n      \"priority\": 3,\n      \"must_preserve\": false\n    },\n    {\n      \"type\": \"product\",\n      \"bbox\": [282, 104, 374, 200],\n      \"priority\": 3,\n      \"must_preserve\": false\n    },\n    {\n      \"type\": \"product\",\n      \"bbox\": [386, 104, 478, 200],\n      \"priority\": 3,\n      \"must_preserve\": false\n    },\n    {\n      \"type\": \"product\",\n      \"bbox\": [490, 104, 582, 200],\n      \"priority\": 3,\n      \"must_preserve\": false\n    },\n    {\n      \"type\": \"product\",\n      \"bbox\": [594, 104, 686, 200],\n      \"priority\": 3,\n      \"must_preserve\": false\n    },\n    {\n      \"type\": \"cta\",\n      \"bbox\": [0, 214, 178, 230],\n      \"priority\": 2,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"background\",\n      \"bbox\": [0, 0, 699, 252],\n      \"priority\": 1,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"other\",\n      \"bbox\": [686, 0, 728, 55],\n      \"priority\": 3,\n      \"must_preserve\": false\n    }\n  ],\n  \"dominant_colors\": [\"#0000ff\", \"#ffffff\"],\n  \"aspect_ratio\": \"1.91:1\",\n  \"platform_guess\": \"google_display\"\n}\n```"
+  },
+  {
+    "image_file": "291438551_1939499829585051_8737891159935433209_n.jpg",
+    "source_width": 600,
+    "source_height": 600,
+    "grid_width": 588,
+    "grid_height": 588,
+    "lora": "{\"elements\": [{\"type\": \"logo\", \"bbox\": [397, 18, 575, 50], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"headline\", \"bbox\": [38, 87, 500, 123], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"product\", \"bbox\": [35, 147, 345, 185], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"price\", \"bbox\": [35, 355, 225, 393], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"cta\", \"bbox\": [35, 431, 201, 469], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"background\", \"bbox\": [0, 0, 588, 532], \"priority\": 3, \"must_preserve\": false}, {\"type\": \"other\", \"bbox\": [35, 505, 201, 527], \"priority\": 3, \"must_preserve\": false}], \"dominant_colors\": [\"#f5a6a6\", \"#ffffff\"], \"aspect_ratio\": \"1.91:1\", \"platform_guess\": \"other\"}",
+    "base": "```json\n{\n  \"elements\": [\n    {\n      \"type\": \"logo\",\n      \"bbox\": [397, 18, 570, 50],\n      \"priority\": 1,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"headline\",\n      \"bbox\": [39, 86, 500, 121],\n      \"priority\": 1,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"product\",\n      \"bbox\": [357, 196, 530, 477],\n      \"priority\": 1,\n      \"must_preserve\": false\n    },\n    {\n      \"type\": \"price\",\n      \"bbox\": [40, 354, 220, 394],\n      \"priority\": 2,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"cta\",\n      \"bbox\": [34, 430, 200, 468],\n      \"priority\": 2,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"background\",\n      \"bbox\": [0, 0, 588, 588],\n      \"priority\": 3,\n      \"must_preserve\": false\n    },\n    {\n      \"type\": \"other\",\n      \"bbox\": [39, 121, 499, 214],\n      \"priority\": 2,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"other\",\n      \"bbox\": [39, 242, 304, 320],\n      \"priority\": 2,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"other\",\n      \"bbox\": [39, 322, 274, 374],\n      \"priority\": 2,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"other\",\n      \"bbox\": [39, 499, 579, 527],\n      \"priority\": 2,\n      \"must_preserve\": true\n    }\n  ],\n  \"dominant_colors\": [\"#f4a460\", \"#ff6b6b\"],\n  \"aspect_ratio\": \"1.91:1\",\n  \"platform_guess\": \"instagram\"\n}\n```"
+  },
+  {
+    "image_file": "299608807_605983280908066_7844322219610408029_n.jpg",
+    "source_width": 464,
+    "source_height": 600,
+    "grid_width": 476,
+    "grid_height": 588,
+    "lora": "{\"elements\": [{\"type\": \"logo\", \"bbox\": [333, 473, 453, 490], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"headline\", \"bbox\": [123, 520, 453, 540], \"priority\": 2, \"must_preserve\": true}, {\"type\": \"product\", \"bbox\": [0, 0, 476, 588], \"priority\": 3, \"must_preserve\": false}], \"dominant_colors\": [\"#ffffff\", \"#000000\"], \"aspect_ratio\": \"1.91:1\", \"platform_guess\": \"other\"}",
+    "base": "```json\n{\n  \"elements\": [\n    {\n      \"type\": \"headline\",\n      \"bbox\": [120, 547, 458, 567],\n      \"priority\": 1,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"logo\",\n      \"bbox\": [332, 472, 455, 516],\n      \"priority\": 1,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"product\",\n      \"bbox\": [0, 0, 476, 588],\n      \"priority\": 1,\n      \"must_preserve\": false\n    }\n  ],\n  \"dominant_colors\": [\"#ffffff\", \"#000000\"],\n  \"aspect_ratio\": \"1.91:1\",\n  \"platform_guess\": \"other\"\n}\n```"
+  },
+  {
+    "image_file": "305402115_1243059126472431_6180150596529671624_n.jpg",
+    "source_width": 600,
+    "source_height": 338,
+    "grid_width": 616,
+    "grid_height": 364,
+    "lora": "{\"elements\": [{\"type\": \"logo\", \"bbox\": [18, 10, 167, 55], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"headline\", \"bbox\": [38, 30, 157, 45], \"priority\": 2, \"must_preserve\": true}, {\"type\": \"product\", \"bbox\": [38, 137, 140, 247], \"priority\": 2, \"must_preserve\": false}, {\"type\": \"product\", \"bbox\": [155, 137, 250, 247], \"priority\": 2, \"must_preserve\": false}, {\"type\": \"product\", \"bbox\": [265, 137, 361, 247], \"priority\": 2, \"must_preserve\": false}, {\"type\": \"product\", \"bbox\": [375, 137, 470, 247], \"priority\": 2, \"must_preserve\": false}, {\"type\": \"product\", \"bbox\": [483, 137, 579, 247], \"priority\": 2, \"must_preserve\": false}, {\"type\": \"cta\", \"bbox\": [415, 59, 548, 75], \"priority\": 2, \"must_preserve\": true}, {\"type\": \"price\", \"bbox\": [75, 279, 591, 316], \"priority\": 2, \"must_preserve\": true}, {\"type\": \"background\", \"bbox\": [0, 0, 616, 364], \"priority\": 3, \"must_preserve\": false}, {\"type\": \"other\", \"bbox\": [565, 18, 605, 45], \"priority\": 1, \"must_preserve\": true}], \"dominant_colors\": [\"#0000ff\", \"#ffffff\"], \"aspect_ratio\": \"1.91:1\", \"platform_guess\": \"google_display\"}",
+    "base": "```json\n{\n  \"elements\": [\n    {\n      \"type\": \"logo\",\n      \"bbox\": [17, 10, 168, 55],\n      \"priority\": 1,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"headline\",\n      \"bbox\": [414, 60, 547, 75],\n      \"priority\": 2,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"product\",\n      \"bbox\": [37, 137, 139, 247],\n      \"priority\": 3,\n      \"must_preserve\": false\n    },\n    {\n      \"type\": \"product\",\n      \"bbox\": [155, 137, 252, 247],\n      \"priority\": 3,\n      \"must_preserve\": false\n    },\n    {\n      \"type\": \"product\",\n      \"bbox\": [270, 137, 366, 247],\n      \"priority\": 3,\n      \"must_preserve\": false\n    },\n    {\n      \"type\": \"product\",\n      \"bbox\": [382, 137, 470, 247],\n      \"priority\": 3,\n      \"must_preserve\": false\n    },\n    {\n      \"type\": \"product\",\n      \"bbox\": [486, 137, 578, 247],\n      \"priority\": 3,\n      \"must_preserve\": false\n    },\n    {\n      \"type\": \"cta\",\n      \"bbox\": [17, 279, 592, 319],\n      \"priority\": 2,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"background\",\n      \"bbox\": [0, 5, 616, 359],\n      \"priority\": 3,\n      \"must_preserve\": false\n    },\n    {\n      \"type\": \"other\",\n      \"bbox\": [565, 17, 605, 75],\n      \"priority\": 3,\n      \"must_preserve\": false\n    }\n  ],\n  \"dominant_colors\": [\"#0000ff\", \"#ffffff\"],\n  \"aspect_ratio\": \"1.91:1\",\n  \"platform_guess\": \"google_display\"\n}\n```"
+  },
+  {
+    "image_file": "305967330_1506137819842398_5628947175696424321_n.jpg",
+    "source_width": 589,
+    "source_height": 600,
+    "grid_width": 588,
+    "grid_height": 588,
+    "lora": "{\"elements\": [{\"type\": \"logo\", \"bbox\": [20, 13, 371, 141], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"headline\", \"bbox\": [366, 283, 570, 343], \"priority\": 2, \"must_preserve\": true}, {\"type\": \"cta\", \"bbox\": [209, 479, 575, 565], \"priority\": 2, \"must_preserve\": true}, {\"type\": \"product\", \"bbox\": [147, 148, 337, 520], \"priority\": 2, \"must_preserve\": false}], \"dominant_colors\": [\"#ffffff\", \"#000000\"], \"aspect_ratio\": \"1.91:1\", \"platform_guess\": \"other\"}",
+    "base": "```json\n{\n  \"elements\": [\n    {\n      \"type\": \"logo\",\n      \"bbox\": [20, 14, 370, 83],\n      \"priority\": 1,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"headline\",\n      \"bbox\": [192, 100, 370, 140],\n      \"priority\": 2,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"cta\",\n      \"bbox\": [366, 282, 570, 343],\n      \"priority\": 2,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"product\",\n      \"bbox\": [147, 148, 337, 522],\n      \"priority\": 2,\n      \"must_preserve\": false\n    },\n    {\n      \"type\": \"background\",\n      \"bbox\": [0, 0, 588, 588],\n      \"priority\": 3,\n      \"must_preserve\": false\n    },\n    {\n      \"type\": \"other\",\n      \"bbox\": [208, 179, 308, 192],\n      \"priority\": 3,\n      \"must_preserve\": false\n    }\n  ],\n  \"dominant_colors\": [\"#ffffff\", \"#000000\"],\n  \"aspect_ratio\": \"1.91:1\",\n  \"platform_guess\": \"instagram\"\n}\n```"
+  },
+  {
+    "image_file": "314165091_572688641325800_5435289668495102249_n.jpg",
+    "source_width": 600,
+    "source_height": 315,
+    "grid_width": 644,
+    "grid_height": 336,
+    "lora": "{\"elements\": [{\"type\": \"product\", \"bbox\": [147, 18, 500, 323], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"background\", \"bbox\": [0, 0, 644, 336], \"priority\": 2, \"must_preserve\": false}], \"dominant_colors\": [\"#e74c3c\", \"#ffffff\"], \"aspect_ratio\": \"1.91:1\", \"platform_guess\": \"google_display\"}",
+    "base": "```json\n{\n  \"elements\": [\n    {\n      \"type\": \"headline\",\n      \"bbox\": [208, 27, 456, 60],\n      \"priority\": 2,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"cta\",\n      \"bbox\": [208, 190, 456, 210],\n      \"priority\": 2,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"product\",\n      \"bbox\": [147, 19, 500, 323],\n      \"priority\": 1,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"background\",\n      \"bbox\": [0, 0, 644, 336],\n      \"priority\": 3,\n      \"must_preserve\": false\n    }\n  ],\n  \"dominant_colors\": [\"#e6194b\", \"#ffffff\"],\n  \"aspect_ratio\": \"1.91:1\",\n  \"platform_guess\": \"other\"\n}\n```"
+  },
+  {
+    "image_file": "317723739_684842543244436_5006196379022700674_n.jpg",
+    "source_width": 600,
+    "source_height": 600,
+    "grid_width": 588,
+    "grid_height": 588,
+    "lora": "{\"elements\": [{\"type\": \"headline\", \"bbox\": [18, 165, 294, 200], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"headline\", \"bbox\": [20, 202, 333, 231], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"cta\", \"bbox\": [20, 241, 267, 265], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"product\", \"bbox\": [59, 375, 295, 571], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"background\", \"bbox\": [0, 0, 588, 588], \"priority\": 3, \"must_preserve\": false}], \"dominant_colors\": [\"#ffffff\", \"#000000\"], \"aspect_ratio\": \"1.91:1\", \"platform_guess\": \"other\"}",
+    "base": "```json\n{\n  \"elements\": [\n    {\n      \"type\": \"headline\",\n      \"bbox\": [18, 160, 297, 200],\n      \"priority\": 1,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"headline\",\n      \"bbox\": [19, 200, 334, 233],\n      \"priority\": 1,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"cta\",\n      \"bbox\": [20, 241, 267, 266],\n      \"priority\": 1,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"background\",\n      \"bbox\": [0, 0, 588, 588],\n      \"priority\": 2,\n      \"must_preserve\": false\n    },\n    {\n      \"type\": \"other\",\n      \"bbox\": [169, 0, 588, 160],\n      \"priority\": 3,\n      \"must_preserve\": false\n    }\n  ],\n  \"dominant_colors\": [\"#ffffff\", \"#000000\"],\n  \"aspect_ratio\": \"1.91:1\",\n  \"platform_guess\": \"instagram\"\n}\n```"
+  },
+  {
+    "image_file": "338474566_547532700596089_8085585518743447460_n.jpg",
+    "source_width": 600,
+    "source_height": 600,
+    "grid_width": 588,
+    "grid_height": 588,
+    "lora": "{\"elements\": [{\"type\": \"product\", \"bbox\": [0, 3, 197, 283], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"product\", \"bbox\": [223, 5, 587, 577], \"priority\": 1, \"must_preserve\": true}, {\"type\": \"product\", \"bbox\": [0, 300, 197, 587], \"priority\": 1, \"must_preserve\": true}], \"dominant_colors\": [\"#00ff00\", \"#0000ff\"], \"aspect_ratio\": \"1.91:1\", \"platform_guess\": \"other\"}",
+    "base": "```json\n{\n  \"elements\": [\n    {\n      \"type\": \"headline\",\n      \"bbox\": [0, 0, 197, 286],\n      \"priority\": 2,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"headline\",\n      \"bbox\": [202, 0, 588, 588],\n      \"priority\": 2,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"headline\",\n      \"bbox\": [0, 299, 197, 588],\n      \"priority\": 2,\n      \"must_preserve\": true\n    },\n    {\n      \"type\": \"product\",\n      \"bbox\": [222, 1, 588, 577],\n      \"priority\": 1,\n      \"must_preserve\": false\n    }\n  ],\n  \"dominant_colors\": [\"#00ff00\", \"#0000ff\"],\n  \"aspect_ratio\": \"1.91:1\",\n  \"platform_guess\": \"instagram\"\n}\n```"
+  }
+]

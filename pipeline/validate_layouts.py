@@ -1,4 +1,4 @@
-"""Check cached layouts against the schema. Local, free, no GPU.
+﻿"""Check cached layouts against the schema. Local, free, no GPU.
 
     python -m pipeline.validate_layouts [samples/layouts]
 
@@ -20,7 +20,7 @@ from adresyze import RawLayout, normalize
 def main(directory: str = "samples/layouts") -> int:
     paths = sorted(Path(directory).glob("*.json"))
     if not paths:
-        print(f"no layouts in {directory}/ -- run `modal run modal_app.py` first")
+        print(f"no layouts in {directory}/ -- run `modal run modal_app.py::main` first")
         return 1
 
     repairs = Counter()
@@ -68,3 +68,4 @@ def main(directory: str = "samples/layouts") -> int:
 
 if __name__ == "__main__":
     sys.exit(main(*sys.argv[1:2]))
+

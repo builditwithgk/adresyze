@@ -1,9 +1,9 @@
-"""Qwen2.5-VL + AdResyze LoRA on Modal.
+﻿"""Qwen2.5-VL + AdResyze LoRA on Modal.
 
 One function, three ways to call it:
 
     modal run modal_app.py::warmup          # once -- pull ~17 GB into the volume
-    modal run modal_app.py                  # batch: samples/images/ -> samples/layouts/
+    modal run modal_app.py::main                  # batch: samples/images/ -> samples/layouts/
     modal deploy modal_app.py               # live HTTPS endpoint for the demo
 
 The container captures the *true* source dimensions and the resized grid the model
@@ -14,6 +14,7 @@ without them a bbox cannot be placed on the image (see README).
 from __future__ import annotations
 
 import base64
+import contextlib
 import json
 import re
 from pathlib import Path
@@ -22,6 +23,13 @@ import modal
 
 BASE_MODEL = "Qwen/Qwen2.5-VL-7B-Instruct"
 ADAPTER = "builditwithgk/adresyze-lora"
+
+#: The adapter is NOT used by default. Measured over 25 ads with STRICT_PROMPT it lost
+#: or tied every metric against the stock base model -- 96% vs 100% parse rate, and 3.9
+#: vs 4.5 elements found per ad. The vocabulary and hex-colour conformance it was
+#: trained to provide reach 100% on the base model once the prompt states the contract.
+#: Reproduce with: modal run modal_app.py::bakeoff && python -m pipeline.score_bakeoff
+USE_ADAPTER = False
 
 # Verbatim from the model card. The LoRA was trained against this exact wording --
 # paraphrasing it measurably degrades a rank-16 adapter, so do not "improve" it.
@@ -100,17 +108,30 @@ class LayoutModel:
     @modal.enter()
     def load(self) -> None:
         import torch
-        from peft import PeftModel
         from transformers import AutoProcessor, Qwen2_5_VLForConditionalGeneration
 
         self.torch = torch
         self.processor = AutoProcessor.from_pretrained(
             BASE_MODEL, min_pixels=MIN_PIXELS, max_pixels=MAX_PIXELS
         )
-        base = Qwen2_5_VLForConditionalGeneration.from_pretrained(
-            BASE_MODEL, torch_dtype=torch.bfloat16, device_map="cuda"
+        model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
+            BASE_MODEL, dtype=torch.bfloat16, device_map="cuda"
         )
-        self.model = PeftModel.from_pretrained(base, ADAPTER).eval()
+        self.has_adapter = USE_ADAPTER
+        if USE_ADAPTER:
+            from peft import PeftModel
+
+            model = PeftModel.from_pretrained(model, ADAPTER)
+        self.model = model.eval()
+
+    @contextlib.contextmanager
+    def _adapter_disabled(self):
+        """No-op when running the stock model, so comparison code stays uniform."""
+        if self.has_adapter:
+            with self.model.disable_adapter():
+                yield
+        else:
+            yield
 
     def _generate(
         self,
@@ -162,7 +183,9 @@ class LayoutModel:
         # One greedy pass; one warmer retry if the model emits unparseable JSON.
         last_error = None
         for attempt, temperature in enumerate((0.0, 0.4)):
-            decoded, grid = self._generate(pil, max_new_tokens=1024, temperature=temperature)
+            decoded, grid = self._generate(
+                pil, max_new_tokens=1024, temperature=temperature, prompt=STRICT_PROMPT
+            )
             parsed = extract_json(decoded)
             if parsed is not None:
                 parsed.update(
@@ -199,11 +222,13 @@ class LayoutModel:
 
         lora_layers = [n for n, _ in self.model.named_modules() if "lora_A" in n]
         with_adapter, grid = self._generate(pil, max_new_tokens=512, temperature=0.0)
-        with self.model.disable_adapter():
+        with self._adapter_disabled():
             without_adapter, _ = self._generate(pil, max_new_tokens=512, temperature=0.0)
 
+        peft_config = getattr(self.model, "peft_config", {})
         return {
-            "peft_config": {k: str(v)[:200] for k, v in self.model.peft_config.items()},
+            "use_adapter": self.has_adapter,
+            "peft_config": {k: str(v)[:200] for k, v in peft_config.items()},
             "active_adapters": list(getattr(self.model, "active_adapters", []) or []),
             "lora_layer_count": len(lora_layers),
             "lora_layer_sample": lora_layers[:4],
@@ -231,8 +256,8 @@ class LayoutModel:
                 if adapter_on:
                     text, _ = self._generate(pil, 1024, 0.0, prompt)
                 else:
-                    with self.model.disable_adapter():
-                        text, _ = self._generate(pil, 1024, 0.0, prompt)
+                    with self._adapter_disabled():
+                        text, _ = self._generate(pil, 1024, 0.0, prompt)  # noqa: PLW2901
                 out[f"{prompt_name}/{'lora' if adapter_on else 'base'}"] = text
         return out
 
@@ -243,11 +268,16 @@ class LayoutModel:
 
         from PIL import Image
 
+        if not self.has_adapter:
+            raise RuntimeError(
+                "bake-off needs the adapter loaded; set USE_ADAPTER = True in modal_app.py"
+            )
+
         pil = Image.open(io.BytesIO(image_bytes)).convert("RGB")
         source_w, source_h = pil.size
 
         lora_text, grid = self._generate(pil, 1024, 0.0, STRICT_PROMPT)
-        with self.model.disable_adapter():
+        with self._adapter_disabled():
             base_text, _ = self._generate(pil, 1024, 0.0, STRICT_PROMPT)
 
         return {
@@ -417,3 +447,4 @@ def main(
 
     print(f"\n{len(todo) - failures}/{len(todo)} succeeded -> {dst}/")
     print("validate with: python -m pipeline.validate_layouts")
+
