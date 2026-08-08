@@ -102,6 +102,11 @@ def build(src: Path, out: Path) -> int:
         ratios[record["aspect_ratio"]] += 1
         types.update(el["type"] for el in record["elements"])
 
+    # The card is authored content and lives in version control; dist/ is disposable.
+    card = Path(__file__).resolve().parents[1] / "docs" / "dataset-card-v2.md"
+    if card.exists():
+        (out / "README.md").write_text(card.read_text(encoding="utf-8"), encoding="utf-8")
+
     print(f"wrote {written} records to {out}  (skipped {skipped})")
     print("\naspect ratios (computed from source dimensions):")
     for name, n in ratios.most_common():

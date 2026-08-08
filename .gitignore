@@ -22,4 +22,7 @@ venv/
 
 # Publication artefacts (regenerate with pipeline/build_v2_dataset.py)
 dist/
-!dist/**/README.md
+
+
+# Review overlays are regenerable; keep the human verdicts.
+eval/sheets/
