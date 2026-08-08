@@ -41,19 +41,34 @@ def _font():
     return ImageFont.load_default()
 
 
-def annotate(image: "Image.Image", layout: Layout) -> "Image.Image":
-    """Draw the detected layout onto a copy of the ad."""
+def annotate(
+    image: "Image.Image", layout: Layout, *, show_index: bool = False
+) -> "Image.Image":
+    """Draw the detected layout onto a copy of the ad.
+
+    `show_index` prefixes each label with its position in `layout.elements`. Reviewing
+    needs it: an ad with two headlines otherwise shows two identical labels and no way
+    to tell which one a given verdict row refers to.
+    """
     from PIL import ImageDraw
 
     out = image.convert("RGB").copy()
     draw = ImageDraw.Draw(out)
-    for el in layout.elements:
+    font = _font()
+
+    for i, el in enumerate(layout.elements):
         if el.type is ElementType.BACKGROUND:
             continue
         box = el.bbox.to_pixels(out.width, out.height)
         colour = TYPE_COLOR.get(el.type, (200, 200, 200))
         draw.rectangle(box, outline=colour, width=max(2, out.width // 250))
-        draw.text((box[0] + 3, box[1] + 2), f"{el.type.value} p{el.priority}", fill=colour, font=_font())
+
+        label = f"#{i} {el.type.value} p{el.priority}" if show_index else f"{el.type.value} p{el.priority}"
+        tx, ty = box[0] + 3, box[1] + 2
+        # Dark plate behind the text -- labels sit on busy creatives and vanish otherwise.
+        left, top, right, bottom = draw.textbbox((tx, ty), label, font=font)
+        draw.rectangle((left - 2, top - 1, right + 2, bottom + 1), fill=(0, 0, 0))
+        draw.text((tx, ty), label, fill=colour, font=font)
     return out
 
 

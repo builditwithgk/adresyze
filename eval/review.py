@@ -33,7 +33,10 @@ ROOT = Path(__file__).resolve().parents[1]
 SHEETS = ROOT / "eval" / "sheets"
 VERDICTS = ROOT / "eval" / "verdicts.csv"
 
-FIELDS = ["image_file", "index", "type", "priority", "bbox", "verdict", "note"]
+#: `sheet` is first on purpose: it is the file you actually open while reviewing.
+#: `image_file` is kept because it is the key that ties a row back to the source ad
+#: and to the published dataset.
+FIELDS = ["sheet", "image_file", "index", "type", "priority", "bbox", "verdict", "note"]
 
 #: `background` extent is ignored by the reflow engine (TYPE_WEIGHT 0.0) because the
 #: model returns partial regions rather than the canvas. Labelling it would measure
@@ -102,12 +105,14 @@ def cmd_sheets(args) -> int:
     for image_path in selected:
         layout_path = layouts / f"{image_path.stem}.json"
         layout, _ = normalize(RawLayout.model_validate(json.loads(layout_path.read_text())))
-        annotate(Image.open(image_path), layout).save(SHEETS / f"{image_path.stem}.png")
+        sheet_name = f"{image_path.stem}.png"
+        annotate(Image.open(image_path), layout, show_index=True).save(SHEETS / sheet_name)
         for i, el in enumerate(layout.elements):
             if el.type.value in SKIP_TYPES:
                 continue
             rows.append(
                 {
+                    "sheet": sheet_name,
                     "image_file": image_path.name,
                     "index": i,
                     "type": el.type.value,
@@ -196,3 +201,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
