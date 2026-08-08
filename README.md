@@ -8,6 +8,7 @@ without squashing the logo or cropping the call to action.
 
 | | |
 |---|---|
+| **Live demo** | **https://scaleupsolutions-in--adresyze-ui.modal.run** |
 | Base model | `Qwen/Qwen2.5-VL-7B-Instruct` |
 | Adapter | [`builditwithgk/adresyze-lora`](https://huggingface.co/builditwithgk/adresyze-lora) (published, not used - see below) |
 | Dataset | [`builditwithgk/adresyze-ad-layouts`](https://huggingface.co/datasets/builditwithgk/adresyze-ad-layouts) |
