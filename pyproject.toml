@@ -28,5 +28,11 @@ adresyze = "adresyze.cli:main"
 requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
+# `adresyze` is the only importable package. `pipeline/`, `eval/` and `training/` are
+# repo-local scripts run as `python -m pipeline.x` from the root, not shipped code --
+# without this, setuptools refuses to guess and `pip install -e .` fails outright.
+[tool.setuptools]
+packages = ["adresyze"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
