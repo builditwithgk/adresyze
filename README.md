@@ -1,5 +1,8 @@
 # AdResyze
 
+[![tests](https://github.com/builditwithgk/adresyze/actions/workflows/tests.yml/badge.svg)](https://github.com/builditwithgk/adresyze/actions/workflows/tests.yml)
+[![licence](https://img.shields.io/badge/licence-Apache--2.0-blue.svg)](LICENSE)
+
 Give it one ad creative, get it back correctly laid out in every platform aspect ratio.
 
 Qwen2.5-VL reads the anatomy of an ad - logo, headline, CTA, product, price,

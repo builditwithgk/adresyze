@@ -11,6 +11,12 @@ dependencies = [
     "pillow>=10.0",
 ]
 
+[project.urls]
+Homepage = "https://github.com/builditwithgk/adresyze"
+Demo = "https://builditwithgk--adresyze-ui.modal.run"
+Dataset = "https://huggingface.co/datasets/builditwithgk/adresyze-ad-layouts"
+Adapter = "https://huggingface.co/builditwithgk/adresyze-lora"
+
 [project.optional-dependencies]
 remote = ["modal>=0.63"]
 dev = ["pytest>=8.0"]

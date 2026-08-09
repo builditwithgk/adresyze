@@ -1,0 +1,36 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      # `remote` pulls in modal, without which the extract_json tests skip rather
+      # than run -- the whole point of CI is that nothing quietly opts out.
+      - run: pip install -e ".[dev,remote]"
+
+      - run: pytest -q
+
+      # The reflow engine is pure geometry, so its behaviour over the corpus is
+      # reproducible anywhere. No ad images or GPU involved.
+      - name: schema conformance against the published v1 annotations
+        run: |
+          python pipeline/fetch_v1_dataset.py
+          pytest -q tests/test_schema.py

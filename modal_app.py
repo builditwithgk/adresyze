@@ -1,4 +1,7 @@
-"""Qwen2.5-VL + AdResyze LoRA on Modal.
+"""Qwen2.5-VL layout inference on Modal.
+
+Runs the stock base model by default; the AdResyze LoRA is available behind
+USE_ADAPTER but lost a measured bake-off and is not in the pipeline (see README).
 
 One function, three ways to call it:
 
