@@ -152,13 +152,6 @@ def main() -> None:
     d.text((672, 226), "measured, then", font=F_TAG, fill=DROP)
     d.text((672, 244), "dropped", font=F_TAG, fill=DROP)
 
-    # --- what the v1 design carried and this one does not -------------------
-    removed = (70, 700, 300, 820)
-    node(d, removed, "Removed", [
-        "LoRA  -  n8n  -  Supabase",
-        "FastAPI  -  VPS",
-    ], DROP, tag="none of it earned its place", dashed=True)
-
     # --- serving ------------------------------------------------------------
     ui = (370, 700, 990, 820)
     node(d, ui, "Gradio UI", [
