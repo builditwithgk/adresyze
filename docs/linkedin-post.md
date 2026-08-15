@@ -20,6 +20,8 @@ Across 302 ads and 4 aspect ratios - 94.1% of reflows lose nothing, and it has n
 
 Built with Claude Code as pair. The measurement round cost under $5 of GPU and ships with 42 tests and CI on three Python versions - because a claim you cannot re-run is an opinion.
 
+Independently reviewed with Cline + DeepSeek: 8.5/10, and it named the missing hand-labelled eval as the top gap. It is right, and that is next.
+
 The adapter and the dataset stay public. A measured negative result is worth more than the artefact it retired.
 
 Demo is live and takes one upload. Bring a creative you think will break it - the failure cases are the interesting ones.
