@@ -116,7 +116,7 @@ def warmup() -> dict:
     gpu="L4",  # 24 GB; bump to "A10G" or "L40S" if you hit OOM on large creatives
     volumes={"/weights": weights},
     timeout=900,
-    scaledown_window=120,
+    scaledown_window=600,  # keep the GPU warm between visitors, not just within one batch
 )
 class LayoutModel:
     """Loaded once per container, reused across images in a batch."""
@@ -341,7 +341,16 @@ def extract_json(text: str) -> dict | None:
     return None
 
 
-@app.function(image=web_image, timeout=600, scaledown_window=300)
+@app.function(
+    image=web_image,
+    timeout=600,
+    # Gradio keeps session state in the container, so a second container or a
+    # scale-down mid-visit produces "Session Not Found". Pin to one container and
+    # keep it warm: this is a cheap CPU box, and the GPU still scales to zero.
+    max_containers=1,
+    min_containers=1,
+    scaledown_window=1200,
+)
 # `label` pins the second half of the URL so redeploys never move it. The first half is
 # the Modal workspace slug and can only be changed by renaming the workspace itself:
 #   https://<workspace>--adresyze-ui.modal.run
