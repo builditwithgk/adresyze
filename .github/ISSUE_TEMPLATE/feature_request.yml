@@ -1,0 +1,36 @@
+name: Feature request
+description: New aspect ratios or platforms, element types, models, or other improvements
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+      description: e.g. "We also need 9:16 Stories with a safe zone for the UI overlay."
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - New aspect ratio or platform preset
+        - New ad element type (e.g. disclaimer, rating, QR code)
+        - Reflow engine behaviour
+        - VLM model / prompt / adapter
+        - Batch processing or integrations
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What would you like adresyze to do?
+    validations:
+      required: true
+  - type: checkboxes
+    id: help
+    attributes:
+      label: Contributing
+      options:
+        - label: I'd be happy to open a pull request for this.

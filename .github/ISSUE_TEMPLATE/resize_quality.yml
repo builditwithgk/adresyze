@@ -1,0 +1,47 @@
+name: Resize quality
+description: The output layout is wrong - an element was cropped, lost, overlapped, or misdetected
+labels: ["layout-quality"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Layout reports with a before/after image are the most useful feedback for the reflow engine and the VLM prompt.
+        ⚠️ **Only attach ads you're allowed to share publicly.** Don't upload confidential or client creatives; a mock-up that reproduces the problem works just as well.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What went wrong?
+      options:
+        - Logo cropped, squashed or missing
+        - Call-to-action (CTA) cropped or missing
+        - Headline / text overlaps or is cut off
+        - Product or price badly placed
+        - Background extension looks wrong
+        - An element was misdetected by the VLM (wrong box or wrong role)
+        - Something else
+    validations:
+      required: true
+  - type: input
+    id: ratios
+    attributes:
+      label: Source and target aspect ratios
+      placeholder: "source 1.91:1 → target 4:5"
+    validations:
+      required: true
+  - type: textarea
+    id: images
+    attributes:
+      label: Before / after images
+      description: Drag and drop the input ad and the output here (see the note above about what's OK to share).
+    validations:
+      required: true
+  - type: textarea
+    id: layout
+    attributes:
+      label: Detected layout JSON (optional)
+      description: The layout adresyze extracted for this ad, if you have it. It shows whether the problem is detection or reflow.
+      render: json
+  - type: textarea
+    id: expected
+    attributes:
+      label: What should it have done?

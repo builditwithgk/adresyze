@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions and ideas
+    url: https://github.com/builditwithgk/adresyze/discussions
+    about: Ask how to use adresyze, share results, or discuss ideas before opening an issue.
+  - name: LoRA adapter on Hugging Face
+    url: https://huggingface.co/builditwithgk/adresyze-lora
+    about: The published Qwen2.5-VL adapter and its model card.
+  - name: Ad layouts dataset on Hugging Face
+    url: https://huggingface.co/datasets/builditwithgk/adresyze-ad-layouts
+    about: The layout dataset used for training and evaluation.

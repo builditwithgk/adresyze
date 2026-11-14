@@ -1,0 +1,50 @@
+name: Bug report
+description: adresyze crashed, errored, or a command / pipeline step misbehaved
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! If it ran fine but the **resized ad looks wrong** (logo cropped, CTA lost, text overlapping), please use the *Resize quality* template instead.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Which part?
+      options:
+        - CLI - adresyze resize
+        - CLI - adresyze preview / report
+        - Modal app (warmup / main / bakeoff)
+        - Pipeline scripts (validate_layouts, score_bakeoff, datasets)
+        - Training / LoRA adapter
+        - Installation
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you run, what did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Exact command
+      render: shell
+      placeholder: adresyze resize ad.jpg --to 1:1,4:5,9:16
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Output or error
+      description: Full traceback or log. Remove API keys, Modal tokens and anything private.
+      render: text
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, Python version, and whether the VLM step ran on Modal (GPU) or locally.
+      placeholder: Ubuntu 22.04, Python 3.11, Modal A10G
+    validations:
+      required: true
